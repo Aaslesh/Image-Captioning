@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Captioning</title>
+    <style>
+body {
+  background-image: url("/static/bg.jpg");
+  background-repeat:no-repeat;
+  background-size:1800px 1080px;
+   display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  gap: 24px;
+  justify-content: center;
+  height: 100vh;
+}
+/*.a{
+    background-color: #ffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+  gap: 20px;
+  width: 619px;
+}*/
+.a1
+{
+  background-color:#acacacb0;
+  display: flex;
+  align-items: center;
+  padding: 24px;
+  gap: 20px;
+  width: 350px; 
+  height:10px;
+}
+.a2{
+  background-color: #acacacb0;
+  display: flex;
+  align-items: center;
+  padding: 24px;
+  gap: 20px;
+  width: 350px; 
+  height:10px;
+
+}
+.aaa{
+    background-color:#acacacb0;
+  display: flex;
+  align-items: center;
+  padding: 24px;
+  gap: 20px;
+  width: 350px; 
+  height:50px;
+}
+@font-face {
+  src:url("/static/font.ttf");
+  font-family:'font';
+  font-style: normal;
+}
+.heading{
+  color: rgb(255, 255, 255);
+  font-family: 'font',Times, "Times New Roman", Georgia, serif;
+  font-size: 6rem;
+}
+    </style>
+	
+</head>
+
+<body>
+
+<div class="heading"> IMAGE CAPTIONING </div>
+    <div> 
+	<!-- Sending data on same route so we need to handle both get and post -->
+	<form method="POST" action="/" enctype="multipart/form-data" id="aa">
+	<div class="a1"><input type="file" name="userfile" placeholder="Enter your Image"></div>
+        <br>
+		<div class="a2"><input type="submit"></div>
+	</form>
+
+	{% if your_result %} <!-- as initially your_caption is empty -->
+		
+		<img src = "{{your_result['image']}}" width="250">
+		<br> <!-- break-->
+		<div class="aaa"><h3> Generated Caption : <i> {{your_result['caption']}}</h3></div>
+		<br> <!-- break-->
+		<audio controls>
+             <source src="{{your_result['sound']}}" type="audio/mpeg" >
+        </audio>
+        <br>
+	
+	 {% endif %}
+    </div>
+</body>
+</html>>
